@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>
+       Android Text View with Custom Font &middot;  Hujiawei Bujidao
+    </title>
+
+    <meta name="generator" content="Hugo 0.29" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta property="og:title" content=" Android Text View with Custom Font &middot;  Hujiawei Bujidao" />
+  	<meta property="og:site_name" content="Hujiawei Bujidao" />
+  	<meta property="og:url" content="https://hujiaweibujidao.github.io/blog/2015/07/04/android-text-view-with-custom-font/" />
+
+    
+  	<meta property="og:type" content="article" />
+    <meta property="og:article:published_time" content="2015-07-04T00:00:00Z" />
+    
+    <meta property="og:article:tag" content="android" />
+    
+    
+
+    <meta name="description" content="Happy Coding &amp; Enjoy Living" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://hujiaweibujidao.github.io/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="https://hujiaweibujidao.github.io/images/apple-touch-icon.png" />
+    <link rel="stylesheet" type="text/css" href="https://hujiaweibujidao.github.io/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="https://hujiaweibujidao.github.io/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="https://hujiaweibujidao.github.io/css/hugo.css" />
+
+    
+    <link rel="stylesheet" type="text/css" href="https://hujiaweibujidao.github.io/css/highlight.css">
+    
+    <link rel="stylesheet" type="text/css" href="https://hujiaweibujidao.github.io/css/github-gist.css">
+    
+    <script src="https://hujiaweibujidao.github.io/js/highlight.js"></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+
+    
+    
+
+    
+      
+          <link href="https://hujiaweibujidao.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Hujiawei Bujidao" />
+      
+      
+    
+
+    <link rel="canonical" href="https://hujiaweibujidao.github.io/blog/2015/07/04/android-text-view-with-custom-font/" />
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://hujiaweibujidao.github.io/">Home</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://hujiaweibujidao.github.io/android">Android</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://hujiaweibujidao.github.io/python">Python</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://hujiaweibujidao.github.io/swift">Swift</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://hujiaweibujidao.github.io/about">About</a>
+            </li>
+        
+
+        <li class="nav-opened" role="presentation"><a href=""></a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/algorithm/">tags/algorithm</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/android/">tags/android</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/swift/">tags/swift</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/reactnative/">tags/reactnative</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/python/">tags/python</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/java/">tags/java</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/dev/">tags/dev</a></li>
+        <li class="nav-opened" role="presentation"><a href="https://hujiaweibujidao.github.io/tags/life/">tags/life</a></li>
+    </ul>
+
+    
+    
+
+    
+        <a class="subscribe-button icon-feed" href="https://hujiaweibujidao.github.io/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+  <header class="main-header post-head" style="background-image: url(https://www.bing.com/ImageResolution.aspx?w=1366&amp;h=768)">
+  
+
+    <nav class="main-nav overlay clearfix">
+    
+        
+    
+    
+        <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+    
+</nav>
+
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Android Text View with Custom Font</h1>
+            <h2 class="page-description">Hujiawei Bujidao</h2> <br/>
+            
+    <a class="bloglogo" href="https://github.com/hujiaweibujidao" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+    <a class="bloglogo" href="https://weibo.com/hujiaweiyinger" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+    <a class="bloglogo" href="https://www.linkedin.com/in/hujiaweibujidao" target="_blank">
+        <span class="icon-linkedin" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+        </div>
+    </div>
+</header>
+
+
+
+<main class="content" role="main">
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Android Text View with Custom Font</h1>
+        
+
+        <section class="post-meta">
+        
+          <span class="post-tag small"><a href="https://hujiaweibujidao.github.io/tags/android/">#android</a></span>
+        
+        &nbsp;&nbsp;
+        
+          <time class="post-date" datetime="2015-07-04T00:00:00Z">
+            2015/7/4
+          </time>
+        
+        </section>
+        <br/>
+    </header>
+
+    <section class="post-content">
+      <p>本文以自定义TextView为例简单实践下如何自定义View，它能够根据设置的xml属性采用不同的字体显示文字</p>
+
+<p>效果如下图所示：</p>
+
+<p><img src="https://hujiaweibujidao.github.io/images/fonttextview.png" alt="images" /></p>
+
+<p>如果你是使用Android Studio的话，那么Custom View操作很简单，只需要<code>new -&gt; UI Component -&gt; Custom View</code>就好了，IDE会自动帮你生成一些有用的代码，然后根据实际需要修改就行了，这里我还是一个个文件创建吧。</p>
+
+<p>你可以从<a href="http://www.1001freefonts.com/">这个网站</a>下载免费的字体文件(需要是<code>ttf</code>格式的)。</p>
+
+<p>(1)新建文件<code>res/values/attrs_font_textview.xml</code>，其中定义一下我们的TextView的属性fontType，用来指明使用的字体。</p>
+
+<pre><code class="language-java">&lt;resources&gt;
+    &lt;declare-styleable name=&quot;FontTextView&quot;&gt;
+        &lt;attr name=&quot;fontType&quot; format=&quot;string&quot;/&gt;
+    &lt;/declare-styleable&gt;
+&lt;/resources&gt;
+</code></pre>
+
+<p>(2)新建自定义的FontTextView类</p>
+
+<p>这个类继承自TextView类，没啥特别的，就是在调用完父类的构造函数之后执行<code>init()</code>方法设置对应的字体就好啦，关键在于如何得到xml文件中定义的fontType属性值的部分代码。</p>
+
+<pre><code>package hujiawei.xiaojian.view;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Typeface;
+import android.util.AttributeSet;
+import android.widget.TextView;
+
+import hujiawei.xiaojian.R;
+import hujiawei.xiaojian.util.FontManager;
+
+public class FontTextView extends TextView {
+
+    private String fontType = &quot;shadow&quot;;
+
+    public FontTextView(Context context) {
+        super(context);
+        init(null, 0);
+    }
+
+    public FontTextView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(attrs, 0);
+    }
+
+    public FontTextView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(attrs, defStyle);
+    }
+
+    private void init(AttributeSet attrs, int defStyle) {
+        final TypedArray array = getContext().obtainStyledAttributes(
+                attrs, R.styleable.FontTextView, defStyle, 0);
+
+        fontType = array.getString(R.styleable.FontTextView_fontType);
+        Typeface font = FontManager.getInstance(getContext().getAssets()).getFont(&quot;shadow&quot;);
+        if (fontType.equalsIgnoreCase(&quot;bling&quot;)) {
+            font = FontManager.getInstance(getContext().getAssets()).getFont(&quot;bling&quot;);
+        } else if (fontType.equalsIgnoreCase(&quot;planet&quot;)) {
+            font = FontManager.getInstance(getContext().getAssets()).getFont(&quot;planet&quot;);
+        }
+        setTypeface(font, Typeface.NORMAL);
+
+        array.recycle();
+    }
+
+}
+</code></pre>
+
+<p>仔细看上面的代码你会发现一个FontManager类，这个类是个单例类，专门用来管理字体的，因为加载字体是比较费时的操作。</p>
+
+<pre><code>package hujiawei.xiaojian.util;
+
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class FontManager {
+
+    private static FontManager instance;
+    private AssetManager assetManager;
+    private Map&lt;String, Typeface&gt; fonts;
+
+    private FontManager(AssetManager assetManager) {
+        this.assetManager = assetManager;
+        fonts = new HashMap&lt;String, Typeface&gt;();
+    }
+
+    public static FontManager getInstance(AssetManager assetManager) {
+        if (instance == null) {
+            instance = new FontManager(assetManager);
+        }
+        return instance;
+    }
+
+    public Typeface getFont(String asset) {
+        if (fonts.containsKey(asset))
+            return fonts.get(asset);
+
+        String path = &quot;fonts/&quot; + asset + &quot;.ttf&quot;;
+        Typeface font = Typeface.createFromAsset(assetManager, path);
+        fonts.put(asset, font);
+
+        return font;
+    }
+
+}
+</code></pre>
+
+<p>(3)接着就是新建一个布局文件来测试下效果啦，下面的布局文件的显示效果就是本文开始的那个效果图。</p>
+
+<pre><code>&lt;RelativeLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:paddingBottom=&quot;@dimen/activity_vertical_margin&quot;
+    android:paddingLeft=&quot;@dimen/activity_horizontal_margin&quot;
+    android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;
+    android:paddingTop=&quot;@dimen/activity_vertical_margin&quot;
+    tools:context=&quot;polaris.ui.PolarisActivity&quot;&gt;
+
+    &lt;TextView
+        android:id=&quot;@+id/textView&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:textSize=&quot;40dp&quot;
+        android:text=&quot;@string/hello_world&quot;/&gt;
+
+    &lt;hujiawei.xiaojian.view.FontTextView
+        android:id=&quot;@+id/bling&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_below=&quot;@+id/textView&quot;
+        android:text=&quot;Bling Font&quot;
+        android:textSize=&quot;40dp&quot;
+        android:textColor=&quot;@android:color/holo_orange_dark&quot;
+        app:fontType=&quot;bling&quot;/&gt;
+
+    &lt;hujiawei.xiaojian.view.FontTextView
+        android:id=&quot;@+id/planet&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_below=&quot;@+id/bling&quot;
+        android:text=&quot;Planet Font&quot;
+        android:textSize=&quot;40dp&quot;
+        android:textColor=&quot;@android:color/holo_blue_dark&quot;
+        app:fontType=&quot;planet&quot;/&gt;
+
+    &lt;hujiawei.xiaojian.view.FontTextView
+        android:id=&quot;@+id/shadow&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_below=&quot;@+id/planet&quot;
+        android:text=&quot;Shadow Font&quot;
+        android:textSize=&quot;40dp&quot;
+        android:textColor=&quot;@android:color/holo_green_light&quot;
+        app:fontType=&quot;shadow&quot;/&gt;
+
+&lt;/RelativeLayout&gt;
+</code></pre>
+
+<p>OK，Enjoy! :-)</p>
+    </section>
+
+    <footer class="post-footer">
+      
+        <figure class="author-image">
+            <a class="img" href="https://hujiaweibujidao.github.io/" style="background-image: url(https://hujiaweibujidao.github.io/images/logo.gif)"><span class="hidden">hujiawei's Picture</span></a>
+        </figure>
+      
+
+      
+
+
+
+
+
+<section class="author" style="width:100%;">
+  <div class="author-meta" style="width:100%;text-align:center;">
+    <span class="author-location icon-user"> Hujiawei is a mobile developer</span>
+    <span class="author-location icon-location"> Guangdong, China</span>
+    <span class="author-link icon-link"><a href="https://hujiaweibujidao.github.io/"> https://hujiaweibujidao.github.io/</a></span>
+    <span class="author-profile" style="width:100%;line-height:1.5em;">本博客所有文章均为原创，请勿随意转载，如需转载请联系我 (<a href="mailto:hujiawei090807@gmail.com">hujiawei090807 AT gmail.com</a>)</span>
+
+    <span class="author-profile" style="width:100%;line-height:2em;font-weight:bold;color:#df5000;margin-top:10px;">我在小专栏有个移动开发技术专栏，不定期分享移动开发的核心技术，总结移动开发的实战经验<br/>所有文章皆为原创，内容制作精良，保证干货满满，欢迎订阅 (<a style="color:#df5000;" href="https://xiaozhuanlan.com/u/javayhu">https://xiaozhuanlan.com/u/javayhu</a>) <br/>
+    >>> 我最近在Android面试指南小专栏里面写了一篇稿子 <a style="color:#df5000;" href="https://xiaozhuanlan.com/topic/1932587460"> [Android面试——算法面试心得] </a>，欢迎阅读！&lt;&lt;&lt;  </span>
+
+    <span class="author-profile" style="width:100%;line-height:1.5em;">下面的二维码是我个人维护的微信公众号“潇涧技术专栏”，会不定期分享移动开发的核心技术，欢迎关注！<br/>
+    	<img src="https://hujiaweibujidao.github.io/images/qrcode_weixin.jpg" />
+    </span>
+  </div>
+</section>
+
+
+      
+        <aside class="read-next">
+  
+      <span class="readmore-prev readmore-meta">PREV: <a href="https://hujiaweibujidao.github.io/blog/2015/06/12/fix-homebrew-for-os-x-10.10-yosemite/"><h4>Fix Homebrew for OS X 10.10 Yosemite</h4></a></span>
+      
+  
+
+  
+      <span class="readmore-next readmore-meta">NEXT: <a href="https://hujiaweibujidao.github.io/blog/2015/07/04/android-popupmenu-and-popupwindow/"><h4>Android PopupMenu and PopupWindow</h4></a></span>
+      
+  
+</aside>
+<br/>
+
+      
+      
+      
+
+	
+	<div id="lv-container" data-id="city" data-uid="MTAyMC8zMTA1MS83NTk5">
+		<script type="text/javascript">
+	   (function(d, s) {
+	       var j, e = d.getElementsByTagName(s)[0];
+
+	       if (typeof LivereTower === 'function') { return; }
+
+	       j = d.createElement(s);
+	       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+	       j.async = true;
+
+	       e.parentNode.insertBefore(j, e);
+	   })(document, 'script');
+		</script>
+	<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+	</div>
+	
+
+	
+
+		
+
+		
+		
+		
+		
+		
+		
+
+		
+		
+	
+
+
+    </footer>
+</article>
+
+</main>
+
+    <footer class="site-footer clearfix">
+        <a id="gotop" class="icon-arrow-up" href="#" title="back to top"></a>
+
+        <section class="copyright"><a href="">Hujiawei Bujidao. </a> All rights reserved &copy; 2013 - 2018</section>
+        
+        <section class="poweredby">Proudly generated by <a href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme &nbsp;
+            
+            <script type="text/javascript">
+                var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cspan id='cnzz_stat_icon_1000165127'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1000165127%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+            </script>
+        </section>
+        
+    </footer>
+  </div> 
+    <script type="text/javascript" src="https://hujiaweibujidao.github.io/js/jquery.js"></script>
+    <script type="text/javascript" src="https://hujiaweibujidao.github.io/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="https://hujiaweibujidao.github.io/js/index.js"></script>
+
+    
+    
+    
+    
+
+    
+</body>
+</html>
+
